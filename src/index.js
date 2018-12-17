@@ -3,9 +3,11 @@ import ReactDOM from 'react-dom';
 import faker from 'faker';
 import Comment from './Comment';
 import Card from './Card';
+import Seasons from './Seasons';
 
 const App = () => {
     return (
+        <div>
         <div className="ui container comments" style={{display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', marginTop: '50px'}}>
         <h1 style={{color: '#07a4ff'}}>Comment's Template</h1>
           <Card>
@@ -23,6 +25,8 @@ const App = () => {
                Are you Sure you Want to do this?
              </div>
          </Card>
+        </div>
+        <Seasons />
         </div>
     )
 }
