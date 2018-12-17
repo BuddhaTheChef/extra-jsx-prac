@@ -5,7 +5,8 @@ import Comment from './Comment';
 import Card from './Card';
 import Seasons from './Seasons';
 
-const App = () => {
+class App extends React.Component {
+    render() {
     return (
         <div>
         <div className="ui container comments" style={{display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', marginTop: '50px'}}>
@@ -29,6 +30,8 @@ const App = () => {
         <Seasons />
         </div>
     )
+}
+
 }
 
 ReactDOM.render(<App />, document.querySelector('#root'));
