@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import './Sesons.css'
+import './Sesons.css';
+import Loader from './Loader';
 
 class Seasons extends Component {
 
@@ -54,7 +55,9 @@ class Seasons extends Component {
                 </div>
             ) 
         }
-        return <div style={{background: 'grey', height: '100vh'}}>Loading...</div>
+        return <div>
+        <Loader message="Please wait for location request"/>
+        </div>
     }
 }
 
