@@ -1,8 +1,23 @@
 import React, {Component} from 'react';
+import './Sesons.css'
 
 class Seasons extends Component {
 
-    state = { lat: null, errorMessage: ''}
+    state = { 
+        lat: null, 
+        errorMessage: ''
+    }
+
+    seasonConfig = {
+        summer: {
+            text: 'Let\'s hit the beach',
+            iconName: 'sun'
+        },
+        winter: {
+            text: 'Burrrr it\'s cold',
+            iconName: 'snowflake'
+        }
+    }
 
     componentDidMount() {
         window.navigator.geolocation.getCurrentPosition(
@@ -24,18 +39,18 @@ class Seasons extends Component {
     
     render() {
         const season = this.getSeason(this.state.lat, new Date().getMonth());
-        const icon = season === 'winter' ? 'snowflake' : 'sun';
+        const { text, iconName } = this.seasonConfig[season];
         if(this.state.errorMessage && !this.state.lat) {
             return <div style={{background: 'grey', height: '100vh'}}>Error: {this.state.errorMessage}</div>
         }
         if(!this.state.errorMessage && this.state.lat) {
             return(
-                <div style={{background: 'grey', height: '100vh'}}>
+                <div className={`season-display ${season}`}>
                     <h1 style={{textAlign: 'center'}}>Seasons</h1>
                 <h3 style={{textAlign: 'center'}}>lattitude: {this.state.lat}</h3>
-                <i className={`${icon} icon`}/>
-                <h3>{season === 'winter' ? "Burrr it's Chilly!" : 'Lets hit the beach'}</h3>
-                <i className={`${icon} icon`}/>
+                <i className={`icon-left massive ${iconName} icon`}/>
+                <h3>{text}</h3>
+                <i className={`icon-right massive ${iconName} icon`}/>
                 </div>
             ) 
         }

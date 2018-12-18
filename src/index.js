@@ -9,8 +9,8 @@ class App extends React.Component {
     render() {
     return (
         <div>
-        <div className="ui container comments" style={{display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', marginTop: '50px'}}>
-        <h1 style={{color: '#07a4ff'}}>Comment's Template</h1>
+        <div className="ui container comments" style={{margin: 0, padding: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', width: '100%', background: '#07a4ff'}}>
+        <h1>Comment's Template</h1>
           <Card>
             <Comment author="Sammy boi" timeSince="Today at 4:00PM" commentText="Yo nice post!" avatar={faker.image.avatar()}/>
           </Card>
