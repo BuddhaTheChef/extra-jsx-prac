@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import axios from 'axios';
 import faker from 'faker';
 import Comment from './Comment';
 import Card from './Card';
@@ -8,8 +9,14 @@ import SearchBar from './SearchBar';
 
 class App extends React.Component {
 
-    onSearchSubmit(term) {
-        console.log(term)
+    async onSearchSubmit(term) {
+    const response = await axios.get('https://api.unsplash.com/search/photos',{
+        params: { query: term},
+         headers: {
+            Authorization: 'Client-ID 10f33bc771c18f663c93245d20bfc7a230a89fe5bbf29f0f6761043a5ff6bd63'
+         }
+    })
+        console.log(response.data.results)
     }
 
     render() {
