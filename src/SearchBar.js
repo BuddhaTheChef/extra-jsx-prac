@@ -14,7 +14,7 @@ class SearchBar extends Component {
 
     render() {
         return (
-            <div  className="ui segment" style={{height: '100vh' }}> 
+            <div  className="ui segment"> 
                 <h1>Dynamic Searching</h1>
                 <form className="ui form" onSubmit={this.onFormSubmit}> 
                     <div className="ui field">

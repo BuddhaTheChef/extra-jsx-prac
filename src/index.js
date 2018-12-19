@@ -6,6 +6,7 @@ import Card from './Card';
 import Seasons from './Seasons';
 import SearchBar from './SearchBar';
 import Unsplash from '../src/api/Unsplash'
+import ImageList from './ImageList';
 
 class App extends React.Component {
     state = {
@@ -46,9 +47,9 @@ class App extends React.Component {
         {/* Second Proj */}
         <Seasons />
         {/* Third Proj  */}
-        <div className="ui container" style={{marginTop: '10px'}}>
+        <div className="ui container" style={{marginTop: '10px', background: 'lightgrey'}}>
         <SearchBar  onParentSubmit={this.onSearchSubmit}/>
-        found:{this.state.images.length}
+        <ImageList images={this.state.images}/>
         </div>
         </div>
     )
