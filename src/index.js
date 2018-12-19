@@ -4,11 +4,18 @@ import faker from 'faker';
 import Comment from './Comment';
 import Card from './Card';
 import Seasons from './Seasons';
+import SearchBar from './SearchBar';
 
 class App extends React.Component {
+
+    onSearchSubmit(term) {
+        console.log(term)
+    }
+
     render() {
     return (
         <div>
+            {/* First Project */}
         <div className="ui container comments" style={{margin: 0, padding: '20px',display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', width: '100%', background: '#07a4ff'}}>
         <h1>Comment's Template</h1>
           <Card>
@@ -27,7 +34,12 @@ class App extends React.Component {
              </div>
          </Card>
         </div>
+        {/* Second Proj */}
         <Seasons />
+        {/* Third Proj  */}
+        <div className="ui container" style={{marginTop: '10px'}}>
+        <SearchBar  onParentSubmit={this.onSearchSubmit}/>
+        </div>
         </div>
     )
 }
