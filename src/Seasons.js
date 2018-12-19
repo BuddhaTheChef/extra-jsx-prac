@@ -37,8 +37,7 @@ class Seasons extends Component {
     }
     }
 
-    
-    render() {
+    renderContent () {
         const season = this.getSeason(this.state.lat, new Date().getMonth());
         const { text, iconName } = this.seasonConfig[season];
         if(this.state.errorMessage && !this.state.lat) {
@@ -58,6 +57,15 @@ class Seasons extends Component {
         return <div>
         <Loader message="Please wait for location request"/>
         </div>
+    }
+
+    
+    render() {
+        return (
+            <div style={{border: 'red solid 3px'}}>
+                {this.renderContent()}
+            </div>
+        )
     }
 }
 
