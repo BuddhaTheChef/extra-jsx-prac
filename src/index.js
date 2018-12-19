@@ -1,22 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import axios from 'axios';
 import faker from 'faker';
 import Comment from './Comment';
 import Card from './Card';
 import Seasons from './Seasons';
 import SearchBar from './SearchBar';
+import Unsplash from '../src/api/Unsplash'
 
 class App extends React.Component {
+    state = {
+        images: []
+    }
 
-    async onSearchSubmit(term) {
-    const response = await axios.get('https://api.unsplash.com/search/photos',{
-        params: { query: term},
-         headers: {
-            Authorization: 'Client-ID 10f33bc771c18f663c93245d20bfc7a230a89fe5bbf29f0f6761043a5ff6bd63'
-         }
+    onSearchSubmit = async (term) => {
+        
+    const response = await Unsplash.get('/search/photos',{
+        params: { query: term}
     })
         console.log(response.data.results)
+        this.setState({images: response.data.results})
     }
 
     render() {
@@ -46,6 +48,7 @@ class App extends React.Component {
         {/* Third Proj  */}
         <div className="ui container" style={{marginTop: '10px'}}>
         <SearchBar  onParentSubmit={this.onSearchSubmit}/>
+        found:{this.state.images.length}
         </div>
         </div>
     )
