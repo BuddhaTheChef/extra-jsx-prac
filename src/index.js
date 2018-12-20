@@ -19,6 +19,10 @@ class App extends React.Component {
         selectedVideo: null
     }
 
+    componentDidMount() {
+        this.onTermSubmit('huskys');
+    }
+
     onSearchSubmit = async (term) => {
         
     const response = await Unsplash.get('/search/photos',{
@@ -34,7 +38,10 @@ class App extends React.Component {
                 q: term
             }
         })
-        this.setState({videos: response.data.items})
+        this.setState({
+            videos: response.data.items,
+            selectedVideo: response.data.items[0]
+        })
     }
 
     onVideoSelect = (video) => {
@@ -43,7 +50,7 @@ class App extends React.Component {
 
     render() {
     return (
-        <div>
+        <div style={{background: 'aquamarine'}}>
             {/* First Project */}
         <div className="ui container comments" style={{margin: 0, padding: '20px',display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', width: '100%', background: '#07a4ff', height: '100vh'}}>
         <h1>Comment's Template</h1>
@@ -71,10 +78,18 @@ class App extends React.Component {
         <ImageList images={this.state.images}/>
         </div>
         {/* Fourth Project */}
-        <div style={{height: '100vh', background:'rgb(50,50,50)', marginTop: '70px' }}>
-            <SearchBar2 onFormSubmit={this.onTermSubmit}/>
-            <VideoDetail video={this.state.selectedVideo} /> 
+        <div style={{height: '100vh', background:'rgb(50,50,50)', paddingTop: '20px', marginTop: '70px' }}>
+            <SearchBar2 onFormSubmit={this.onTermSubmit} style={{marginTop: '50px'}}/>
+            <div className="ui grid">
+            <div className="ui row" style={{margin: '0px 54px'}}>
+            <div className="eleven wide column">
+                <VideoDetail video={this.state.selectedVideo} /> 
+            </div>
+            <div className="five wide column">
             <VideoList videos={this.state.videos} onVideoSelect={this.onVideoSelect} />
+            </div>
+            </div>
+            </div>
         </div>
         </div>
     )
