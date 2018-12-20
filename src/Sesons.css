@@ -1,12 +1,12 @@
 .icon-left {
     position: absolute;
-    top: 77vh;
+    top: 110vh;
     left: 10px;
 }
 
 .icon-right {
     position: absolute;
-    bottom: -65vh;
+    bottom: -90vh;
     right: 10px;
 }
 

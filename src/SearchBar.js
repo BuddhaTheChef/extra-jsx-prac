@@ -14,7 +14,7 @@ class SearchBar extends Component {
 
     render() {
         return (
-            <div  className="ui segment"> 
+            <div  className="ui segment" style={{marginTop: '70px', padding: '50px'}}> 
                 <h1>Dynamic Searching</h1>
                 <form className="ui form" onSubmit={this.onFormSubmit}> 
                     <div className="ui field">

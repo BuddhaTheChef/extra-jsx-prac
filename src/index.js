@@ -8,6 +8,8 @@ import SearchBar from './SearchBar';
 import Unsplash from '../src/api/Unsplash'
 import ImageList from './ImageList';
 
+import SearchBar2 from './Proj4/SearchBar2';
+
 class App extends React.Component {
     state = {
         images: []
@@ -26,7 +28,7 @@ class App extends React.Component {
     return (
         <div>
             {/* First Project */}
-        <div className="ui container comments" style={{margin: 0, padding: '20px',display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', width: '100%', background: '#07a4ff'}}>
+        <div className="ui container comments" style={{margin: 0, padding: '20px',display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', width: '100%', background: '#07a4ff', height: '100vh'}}>
         <h1>Comment's Template</h1>
           <Card>
             <Comment author="Sammy boi" timeSince="Today at 4:00PM" commentText="Yo nice post!" avatar={faker.image.avatar()}/>
@@ -50,6 +52,10 @@ class App extends React.Component {
         <div className="ui container" style={{marginTop: '10px', background: 'lightgrey'}}>
         <SearchBar  onParentSubmit={this.onSearchSubmit}/>
         <ImageList images={this.state.images}/>
+        </div>
+        {/* Fourth Project */}
+        <div style={{height: '100vh', background:'rgb(50,50,50)', color: 'whitesmoke', marginTop: '70px' }}>
+            <SearchBar2 />
         </div>
         </div>
     )

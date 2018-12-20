@@ -37,8 +37,10 @@ class Seasons extends Component {
     }
     }
 
-    renderContent () {
-        const season = this.getSeason(this.state.lat, new Date().getMonth());
+
+    
+    render() {
+          const season = this.getSeason(this.state.lat, new Date().getMonth());
         const { text, iconName } = this.seasonConfig[season];
         if(this.state.errorMessage && !this.state.lat) {
             return <div style={{background: 'grey', height: '100vh'}}>Error: {this.state.errorMessage}</div>
@@ -54,18 +56,12 @@ class Seasons extends Component {
                 </div>
             ) 
         }
-        return <div>
-        {/* <Loader message="Please wait for location request"/> */}
+       else { return (
+        <div>
+            {/* <Loader message="Please wait for location request"/> */}
         </div>
-    }
-
-    
-    render() {
-        return (
-            <div style={{border: 'red solid 3px'}}>
-                {this.renderContent()}
-            </div>
         )
+       }
     }
 }
 
