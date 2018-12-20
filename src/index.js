@@ -9,10 +9,12 @@ import Unsplash from '../src/api/Unsplash'
 import ImageList from './ImageList';
 import SearchBar2 from './Proj4/SearchBar2';
 import Youtube from './api/Youtube';
+import VideoList from './Proj4/VideoList';
 
 class App extends React.Component {
     state = {
-        images: []
+        images: [],
+        videos: []
     }
 
     onSearchSubmit = async (term) => {
@@ -24,12 +26,13 @@ class App extends React.Component {
         this.setState({images: response.data.results})
     }
 
-    onTermSubmit = (term) => {
-        Youtube.get('/search', {
+    onTermSubmit =  async (term) => {
+        const response = await Youtube.get('/search', {
             params: {
                 q: term
             }
         })
+        this.setState({videos: response.data.items})
     }
 
     render() {
@@ -64,6 +67,7 @@ class App extends React.Component {
         {/* Fourth Project */}
         <div style={{height: '100vh', background:'rgb(50,50,50)', color: 'whitesmoke', marginTop: '70px' }}>
             <SearchBar2 onFormSubmit={this.onTermSubmit}/>
+            <VideoList videos={this.state.videos} />
         </div>
         </div>
     )
