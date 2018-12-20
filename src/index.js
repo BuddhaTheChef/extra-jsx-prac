@@ -7,8 +7,8 @@ import Seasons from './Seasons';
 import SearchBar from './SearchBar';
 import Unsplash from '../src/api/Unsplash'
 import ImageList from './ImageList';
-
 import SearchBar2 from './Proj4/SearchBar2';
+import Youtube from './api/Youtube';
 
 class App extends React.Component {
     state = {
@@ -22,6 +22,14 @@ class App extends React.Component {
     })
         console.log(response.data.results)
         this.setState({images: response.data.results})
+    }
+
+    onTermSubmit = (term) => {
+        Youtube.get('/search', {
+            params: {
+                q: term
+            }
+        })
     }
 
     render() {
@@ -55,7 +63,7 @@ class App extends React.Component {
         </div>
         {/* Fourth Project */}
         <div style={{height: '100vh', background:'rgb(50,50,50)', color: 'whitesmoke', marginTop: '70px' }}>
-            <SearchBar2 />
+            <SearchBar2 onFormSubmit={this.onTermSubmit}/>
         </div>
         </div>
     )
