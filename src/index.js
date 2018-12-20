@@ -10,11 +10,13 @@ import ImageList from './ImageList';
 import SearchBar2 from './Proj4/SearchBar2';
 import Youtube from './api/Youtube';
 import VideoList from './Proj4/VideoList';
+import VideoDetail from './Proj4/VideoDetail';
 
 class App extends React.Component {
     state = {
         images: [],
-        videos: []
+        videos: [],
+        selectedVideo: null
     }
 
     onSearchSubmit = async (term) => {
@@ -33,6 +35,10 @@ class App extends React.Component {
             }
         })
         this.setState({videos: response.data.items})
+    }
+
+    onVideoSelect = (video) => {
+        this.setState({selectedVideo: video})
     }
 
     render() {
@@ -65,9 +71,10 @@ class App extends React.Component {
         <ImageList images={this.state.images}/>
         </div>
         {/* Fourth Project */}
-        <div style={{height: '100vh', background:'rgb(50,50,50)', color: 'whitesmoke', marginTop: '70px' }}>
+        <div style={{height: '100vh', background:'rgb(50,50,50)', marginTop: '70px' }}>
             <SearchBar2 onFormSubmit={this.onTermSubmit}/>
-            <VideoList videos={this.state.videos} />
+            <VideoDetail video={this.state.selectedVideo} /> 
+            <VideoList videos={this.state.videos} onVideoSelect={this.onVideoSelect} />
         </div>
         </div>
     )
