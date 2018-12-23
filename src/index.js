@@ -11,6 +11,11 @@ import SearchBar2 from './Proj4/SearchBar2';
 import Youtube from './api/Youtube';
 import VideoList from './Proj4/VideoList';
 import VideoDetail from './Proj4/VideoDetail';
+import SongList from './Components/SongList';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import reducers from './reducers';
+import { selectSong } from './actions';
 
 class App extends React.Component {
     state = {
@@ -91,10 +96,23 @@ class App extends React.Component {
             </div>
             </div>
         </div>
+        {/* Fifth Project */}
+        <div className="ui container grid">
+            <div className="ui row">
+                <div className="column eight wide">
+                     <SongList />
+                </div>
+            </div>
+        </div>
         </div>
     )
 }
 
 }
 
-ReactDOM.render(<App />, document.querySelector('#root'));
+ReactDOM.render(
+<Provider store={createStore(reducers)}>
+<App />
+</Provider>, 
+document.querySelector('#root')
+);

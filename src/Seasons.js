@@ -6,6 +6,7 @@ class Seasons extends Component {
 
     state = { 
         lat: null, 
+        lon: null,
         errorMessage: ''
     }
 
@@ -23,7 +24,7 @@ class Seasons extends Component {
     componentDidMount() {
         window.navigator.geolocation.getCurrentPosition(
             (position) => {
-            this.setState({ lat: position.coords.latitude})},
+            this.setState({ lat: position.coords.latitude, lon: position.coords.longitude})},
             (err) => this.setState({errorMessage: err.message})
        )
     }
@@ -50,8 +51,9 @@ class Seasons extends Component {
                 <div className={`season-display ${season}`}>
                     <h1 style={{textAlign: 'center'}}>Seasons</h1>
                 <h3 style={{textAlign: 'center'}}>lattitude: {this.state.lat}</h3>
+                <h3 style={{textAlign: 'center'}}>longitude: {this.state.lon}</h3>
                 <i className={`icon-left massive ${iconName} icon`}/>
-                <h3>{text}</h3>
+                <h1>{text}</h1>
                 <i className={`icon-right massive ${iconName} icon`}/>
                 </div>
             ) 
