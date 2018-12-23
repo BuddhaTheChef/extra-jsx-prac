@@ -16,6 +16,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import reducers from './reducers';
 import SongDetail from './Components/SongDetail';
+import PostList from './Components/PostList';
 
 class App extends React.Component {
     state = {
@@ -107,6 +108,10 @@ class App extends React.Component {
                     <SongDetail />
                 </div>
             </div>
+        </div>
+        {/* Sixth Project */}
+        <div className="ui container" style={{width:'100%', height: '50vh', background: 'rgb(66,66,66)'}}>
+            <PostList />
         </div>
         </div>
     )
