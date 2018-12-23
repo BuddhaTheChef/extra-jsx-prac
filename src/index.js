@@ -15,7 +15,7 @@ import SongList from './Components/SongList';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import reducers from './reducers';
-import { selectSong } from './actions';
+import SongDetail from './Components/SongDetail';
 
 class App extends React.Component {
     state = {
@@ -97,10 +97,14 @@ class App extends React.Component {
             </div>
         </div>
         {/* Fifth Project */}
-        <div className="ui container grid">
+        <h1 style={{textAlign: 'center'}}>Redux Practice</h1>
+        <div className="ui container grid" style={{marginTop: '30px'}}>
             <div className="ui row">
                 <div className="column eight wide">
                      <SongList />
+                </div>
+                <div className="column eight wide">
+                    <SongDetail />
                 </div>
             </div>
         </div>
