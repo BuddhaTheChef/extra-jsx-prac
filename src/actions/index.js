@@ -1,3 +1,5 @@
+import JsonPlaceholder from '../api/JsonPlaceholder';
+
 export const selectSong = (song) => {
     return {
         type: 'SONG_SELECTED',
@@ -5,8 +7,7 @@ export const selectSong = (song) => {
     }
 };
 
-export const fetchPosts = () => {
-    return {
-        type: 'FETCH_POSTS',
-    }
-}
+export const fetchPosts = () => async(dispatch) => {
+        const response = await JsonPlaceholder.get('/posts');
+        dispatch({type: 'FETCH_POSTS', payload: response})
+};

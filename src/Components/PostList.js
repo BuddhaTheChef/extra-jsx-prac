@@ -8,7 +8,9 @@ class PostList extends Component {
     }
     render() {
         return (
-            <div>Post List</div>
+            <div>
+                <h1 style={{textAlign: 'center', color: 'whitesmoke', paddingTop: '35px'}}>Post Lists</h1>
+            </div>
         )
     }
 }
