@@ -111,7 +111,7 @@ class App extends React.Component {
             </div>
         </div>
         {/* Sixth Project */}
-        <div className="ui container" style={{width:'100%', height: '50vh', background: 'rgb(66,66,66)'}}>
+        <div className="ui container" style={{width:'100%', height: 'auto', background: 'rgb(66,66,66)'}}>
             <PostList />
         </div>
         </div>
