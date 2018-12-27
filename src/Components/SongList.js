@@ -19,7 +19,6 @@ class SongList extends Component {
     }
 
     render() {
-        console.log(this.props)
         return (    
             <div style={{height: '50vh'}}>
                 <div>

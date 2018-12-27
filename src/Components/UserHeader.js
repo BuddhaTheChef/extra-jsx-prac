@@ -1,11 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { fetchUser } from '../actions';
 
 class UserHeader extends Component {
-    componentDidMount() {
-        this.props.fetchUser(this.props.userId);
-    }
 
     render() {
         const { user } = this.props;
@@ -13,7 +9,7 @@ class UserHeader extends Component {
         if(!user) {return null}
         return (
             <div>
-                <div className="header">{user.name}</div>
+                <div className="header" style={{color: '#1489ff', marginTop: '50px', marginLeft:'50px'}}>{user.name}</div>
             </div>
         )
     }
@@ -25,4 +21,4 @@ const mapStateToProps = (state, ownProps) => {
     }
 }
 
-export default connect(mapStateToProps, {fetchUser})(UserHeader);
+export default connect(mapStateToProps)(UserHeader);
